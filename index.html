@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV Digital - [Muhammad Nur Sidiq]</title>
+    <title>CV Digital - Muhammad Nur Sidiq</title>
     <style>
-        body { 
-            font-family: 'Arial', sans-serif; 
+        body {
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f4f4f9;
@@ -48,17 +48,6 @@
             font-size: 1.6em;
             margin-bottom: 10px;
         }
-        .social-links a {
-            margin-right: 15px;
-            font-size: 1.1em;
-            text-decoration: none;
-            color: #0073e6;
-            transition: color 0.3s ease;
-        }
-        .social-links a:hover {
-            color: #005bb5;
-            text-decoration: underline;
-        }
         footer {
             text-align: center;
             margin-top: 40px;
@@ -82,11 +71,34 @@
             font-size: 1.1em;
             margin: 5px 0;
         }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1em;
+            margin: 10px 5px;
+            color: white;
+            background-color: #0073e6;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .button:hover {
+            background-color: #005bb5;
+        }
+        .button-group {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .dark-mode {
+            background-color: #333;
+            color: #f4f4f9;
+        }
     </style>
 </head>
 <body>
     <header>
-        <img src="https://via.placeholder.com/150" alt="Foto Profil" class="profile-picture">
+        <img src="e:\foto.jpeg" alt="Foto Profil" class="profile-picture">
         <h1>Muhammad Nur Sidiq</h1>
         <p>Mahasiswa/Buruh</p>
     </header>
@@ -94,19 +106,26 @@
     <section class="section">
         <h2>Profil</h2>
         <p>Lulusan SMA IPA dengan pengalaman 1 tahun sebagai operator di PT Kyowa Indonesia. Terampil mengoperasikan mesin, menjaga kualitas produk, dan bekerja sama dengan tim untuk mencapai target. Teliti, disiplin, dan siap memberikan kontribusi positif di tempat kerja berikutnya.</p>
+        <div class="button-group">
+            <button class="button" onclick="alert('Terima kasih telah melihat profil saya!')">Sapa Saya</button>
+            <button class="button" onclick="scrollToContact()">Lihat Kontak</button>
+        </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="kontak">
         <h2>Kontak</h2>
         <p><strong>Nomor Telepon:</strong> <a href="tel:+6285777322764">+62 857 7732 2764</a></p>
         <p><strong>Email:</strong> <a href="mailto:mnursidiq65@gmail.com">mnursidiq65@gmail.com</a></p>
+        <div class="button-group">
+            <button class="button" onclick="copyToClipboard('mnursidiq65@gmail.com')">Salin Email</button>
+        </div>
     </section>
 
     <section class="section">
         <h2>Media Sosial</h2>
-        <div class="social-links">
-            <a href="https://instagram.com/mnsdq29" target="_blank">Instagram</a>
-            <a href="https://www.tiktok.com/@dikkaje" target="_blank">TikTok</a>
+        <div class="button-group">
+            <a href="https://instagram.com/mnsdq29" target="_blank" class="button">Instagram</a>
+            <a href="https://www.tiktok.com/@dikkaje" target="_blank" class="button">TikTok</a>
         </div>
     </section>
 
@@ -129,5 +148,19 @@
     <footer>
         &copy; 2025 Muhammad Nur Sidiq. Dibuat dengan ❤️ menggunakan <a href="https://github.com" target="_blank">GitHub Pages</a>.
     </footer>
+
+    <script>
+        function scrollToContact() {
+            document.getElementById('kontak').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Email berhasil disalin ke clipboard!');
+            }).catch(err => {
+                alert('Gagal menyalin teks: ' + err);
+            });
+        }
+    </script>
 </body>
 </html>
